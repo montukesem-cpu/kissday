@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Kiss Day, Vidu 💋</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:wght@400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rose: #ff6b9d;
-            --deep-rose: #c9184a;
-            --blush: #ffb3c6;
-            --cream: #fff4f0;
-            --gold: #d4af37;
-            --soft-shadow: rgba(255, 107, 157, 0.2);
+            --hot-pink: #ff1493;
+            --magenta: #e91e63;
+            --soft-pink: #ffb6d9;
+            --peach: #ffd4e5;
+            --cream: #fff5f8;
+            --deep-pink: #c2185b;
+            --gold-shimmer: #ffd700;
         }
 
         * {
@@ -22,12 +23,20 @@
         }
 
         body {
-            font-family: 'Cormorant Garamond', serif;
-            background: linear-gradient(135deg, var(--cream) 0%, #ffe5ec 100%);
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, #ffe5f0 0%, #ffc6e0 25%, #ffb6d9 50%, #ffc6e0 75%, #ffe5f0 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
             color: #2d2d2d;
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Floating hearts background animation */
@@ -94,47 +103,60 @@
         .kiss-emoji {
             font-size: 120px;
             display: inline-block;
-            animation: pulse 2s infinite;
-            filter: drop-shadow(0 10px 30px var(--soft-shadow));
+            animation: pulse-rotate 2.5s infinite;
+            filter: drop-shadow(0 10px 40px rgba(255, 20, 147, 0.5));
         }
 
-        @keyframes pulse {
+        @keyframes pulse-rotate {
             0%, 100% {
-                transform: scale(1);
+                transform: scale(1) rotate(0deg);
+            }
+            25% {
+                transform: scale(1.15) rotate(-10deg);
             }
             50% {
-                transform: scale(1.1);
+                transform: scale(1.1) rotate(0deg);
+            }
+            75% {
+                transform: scale(1.15) rotate(10deg);
             }
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            font-weight: 700;
-            color: var(--deep-rose);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 96px;
+            font-weight: 400;
+            background: linear-gradient(135deg, var(--hot-pink), var(--magenta), var(--deep-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin: 30px 0 20px;
-            line-height: 1.2;
-            letter-spacing: -1px;
+            line-height: 1;
+            letter-spacing: 8px;
             animation: fadeInDown 1s ease-out 0.3s backwards;
+            text-shadow: 0 4px 20px rgba(255, 20, 147, 0.3);
         }
 
         .hero .subtitle {
-            font-size: 28px;
-            color: var(--rose);
-            font-weight: 300;
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--magenta);
             margin-bottom: 40px;
             animation: fadeInDown 1s ease-out 0.6s backwards;
+            text-shadow: 0 2px 15px rgba(233, 30, 99, 0.3);
         }
 
         /* Message card */
         .message-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 60px 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 70px 60px;
             margin: 40px 0;
-            box-shadow: 0 20px 60px rgba(201, 24, 74, 0.15);
-            border: 1px solid rgba(255, 107, 157, 0.1);
+            box-shadow: 0 30px 80px rgba(255, 20, 147, 0.25),
+                        inset 0 0 60px rgba(255, 182, 217, 0.2);
+            border: 2px solid rgba(255, 20, 147, 0.2);
             animation: fadeInUp 1s ease-out 0.9s backwards;
             position: relative;
             overflow: hidden;
@@ -147,8 +169,19 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 107, 157, 0.05) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.08) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        .message-card::after {
+            content: '💋';
+            position: absolute;
+            font-size: 250px;
+            opacity: 0.03;
+            top: -50px;
+            right: -50px;
+            transform: rotate(-15deg);
+            pointer-events: none;
         }
 
         @keyframes rotate {
@@ -162,10 +195,14 @@
         }
 
         .message-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: var(--deep-rose);
-            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 52px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--hot-pink), var(--magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 35px;
             text-align: center;
         }
 
@@ -179,11 +216,11 @@
 
         .signature {
             text-align: right;
-            font-size: 28px;
-            font-style: italic;
-            color: var(--rose);
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--magenta);
             margin-top: 40px;
-            font-weight: 600;
         }
 
         /* Memories section */
@@ -193,11 +230,15 @@
         }
 
         .memories h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            color: var(--deep-rose);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 64px;
+            background: linear-gradient(135deg, var(--hot-pink), var(--magenta), var(--deep-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-align: center;
             margin-bottom: 50px;
+            letter-spacing: 4px;
         }
 
         .memory-grid {
@@ -208,31 +249,61 @@
         }
 
         .memory-item {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 35px 30px;
-            box-shadow: 0 10px 30px rgba(201, 24, 74, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 107, 157, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 228, 240, 0.9));
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px 35px;
+            box-shadow: 0 15px 45px rgba(255, 20, 147, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 20, 147, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 20, 147, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .memory-item:hover::before {
+            left: 100%;
         }
 
         .memory-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(201, 24, 74, 0.2);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 65px rgba(255, 20, 147, 0.3);
+            border-color: var(--hot-pink);
         }
 
         .memory-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 56px;
+            margin-bottom: 25px;
             display: block;
+            animation: float-icon 3s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(255, 20, 147, 0.3));
+        }
+
+        @keyframes float-icon {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .memory-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            color: var(--deep-rose);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--magenta);
             margin-bottom: 15px;
+            letter-spacing: 2px;
         }
 
         .memory-item p {
@@ -243,12 +314,12 @@
 
         /* Kiss counter */
         .kiss-counter {
-            background: linear-gradient(135deg, var(--rose), var(--deep-rose));
-            border-radius: 30px;
-            padding: 50px;
+            background: linear-gradient(135deg, var(--hot-pink), var(--magenta), var(--deep-pink));
+            border-radius: 40px;
+            padding: 60px;
             text-align: center;
             color: white;
-            box-shadow: 0 20px 60px rgba(201, 24, 74, 0.3);
+            box-shadow: 0 30px 80px rgba(255, 20, 147, 0.4);
             animation: fadeInUp 1s ease-out 1.5s backwards;
             position: relative;
             overflow: hidden;
@@ -257,29 +328,54 @@
         .kiss-counter::before {
             content: '💋';
             position: absolute;
-            font-size: 200px;
-            opacity: 0.1;
-            top: -30px;
-            right: -30px;
-            transform: rotate(-15deg);
+            font-size: 250px;
+            opacity: 0.15;
+            top: -40px;
+            right: -40px;
+            transform: rotate(-20deg);
+            animation: pulse-rotate 4s ease-in-out infinite;
+        }
+
+        .kiss-counter::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
 
         .kiss-counter h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 38px;
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .kiss-count {
-            font-size: 80px;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            margin: 20px 0;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px;
+            font-weight: 400;
+            margin: 25px 0;
+            text-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 1;
+            animation: glow-pulse 2s infinite;
+            letter-spacing: 5px;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% {
+                text-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                text-shadow: 0 6px 35px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.4);
+            }
         }
 
         .kiss-counter p {
@@ -294,17 +390,68 @@
             text-align: center;
             padding: 60px 20px 40px;
             font-size: 20px;
-            color: var(--rose);
+            color: var(--magenta);
             animation: fadeIn 1s ease-out 1.8s backwards;
         }
 
         footer p {
             margin: 10px 0;
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            font-weight: 600;
         }
 
         .footer-hearts {
-            font-size: 24px;
+            font-size: 32px;
             margin: 20px 0;
+            filter: drop-shadow(0 4px 15px rgba(255, 20, 147, 0.4));
+        }
+
+        /* Interactive kiss button */
+        .kiss-button-section {
+            text-align: center;
+            margin: 60px 0;
+            animation: fadeIn 1s ease-out 1.6s backwards;
+        }
+
+        .kiss-button {
+            background: linear-gradient(135deg, var(--hot-pink), var(--magenta));
+            color: white;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            padding: 25px 60px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 20px 50px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kiss-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .kiss-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(255, 20, 147, 0.5);
+            border-color: var(--gold-shimmer);
+        }
+
+        .kiss-button:active::before {
+            width: 400px;
+            height: 400px;
         }
 
         /* Animations */
@@ -342,23 +489,24 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 48px;
+                font-size: 64px;
+                letter-spacing: 4px;
             }
 
             .hero .subtitle {
-                font-size: 22px;
+                font-size: 28px;
             }
 
             .kiss-emoji {
-                font-size: 80px;
+                font-size: 90px;
             }
 
             .message-card {
-                padding: 40px 30px;
+                padding: 50px 35px;
             }
 
             .message-card h2 {
-                font-size: 32px;
+                font-size: 40px;
             }
 
             .message-card p {
@@ -366,11 +514,16 @@
             }
 
             .kiss-count {
-                font-size: 60px;
+                font-size: 80px;
             }
 
             .memory-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .kiss-button {
+                font-size: 26px;
+                padding: 20px 50px;
             }
         }
     </style>
@@ -443,6 +596,11 @@
             <p>Because with you, every moment deserves a kiss!</p>
         </div>
 
+        <!-- Interactive Kiss Button -->
+        <div class="kiss-button-section">
+            <button class="kiss-button" id="kissBtn">SEND A KISS TO VIDU 💋</button>
+        </div>
+
         <!-- Footer -->
         <footer>
             <div class="footer-hearts">💕 💖 💗 💝 💕</div>
@@ -452,6 +610,57 @@
     </div>
 
     <script>
+        // Interactive kiss button
+        const kissBtn = document.getElementById('kissBtn');
+        const kissEmoji = document.querySelector('.kiss-emoji');
+        
+        kissBtn.addEventListener('click', function() {
+            // Animate the main kiss emoji
+            kissEmoji.style.animation = 'none';
+            setTimeout(() => {
+                kissEmoji.style.animation = 'pulse-rotate 1s ease-in-out';
+            }, 10);
+            
+            // Create kiss explosion
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    createFloatingKiss();
+                }, i * 80);
+            }
+            
+            // Button feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+
+        function createFloatingKiss() {
+            const kisses = ['💋', '💖', '💕', '💗'];
+            const kiss = document.createElement('div');
+            kiss.textContent = kisses[Math.floor(Math.random() * kisses.length)];
+            kiss.style.position = 'fixed';
+            kiss.style.left = (Math.random() * 100) + 'vw';
+            kiss.style.top = '100vh';
+            kiss.style.fontSize = (35 + Math.random() * 40) + 'px';
+            kiss.style.pointerEvents = 'none';
+            kiss.style.zIndex = '9999';
+            kiss.style.transition = 'all 3.5s ease-out';
+            kiss.style.filter = 'drop-shadow(0 0 15px rgba(255, 20, 147, 0.8))';
+            document.body.appendChild(kiss);
+            
+            setTimeout(() => {
+                kiss.style.top = '-10vh';
+                kiss.style.left = (Math.random() * 100) + 'vw';
+                kiss.style.transform = `rotate(${Math.random() * 720 - 360}deg) scale(${1 + Math.random()})`;
+                kiss.style.opacity = '0';
+            }, 50);
+            
+            setTimeout(() => {
+                kiss.remove();
+            }, 3500);
+        }
+
         // Add some interactivity - clicking the kiss emoji
         document.querySelector('.kiss-emoji').addEventListener('click', function() {
             this.style.transform = 'scale(1.3) rotate(15deg)';
@@ -459,30 +668,21 @@
                 this.style.transform = 'scale(1) rotate(0deg)';
             }, 300);
             
-            // Create a floating kiss
-            const kiss = document.createElement('div');
-            kiss.textContent = '💋';
-            kiss.style.position = 'fixed';
-            kiss.style.left = '50%';
-            kiss.style.top = '50%';
-            kiss.style.fontSize = '40px';
-            kiss.style.pointerEvents = 'none';
-            kiss.style.zIndex = '9999';
-            kiss.style.animation = 'float 3s ease-out forwards';
-            document.body.appendChild(kiss);
-            
-            setTimeout(() => {
-                kiss.remove();
-            }, 3000);
+            // Create floating kisses
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    createFloatingKiss();
+                }, i * 100);
+            }
         });
 
         // Make memory items gently sway on hover
         document.querySelectorAll('.memory-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) rotate(2deg)';
+                this.style.transform = 'translateY(-15px) scale(1.03) rotate(2deg)';
             });
             item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) rotate(0deg)';
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
             });
         });
     </script>
