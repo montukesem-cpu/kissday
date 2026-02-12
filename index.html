@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Kiss Day, Vidu 💋</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #ff6b9d;
+            --deep-rose: #c9184a;
+            --blush: #ffb3c6;
+            --cream: #fff4f0;
+            --gold: #d4af37;
+            --soft-shadow: rgba(255, 107, 157, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #ffe5ec 100%);
+            color: #2d2d2d;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Floating hearts background animation */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 25%; animation-delay: 2s; font-size: 15px; }
+        .heart:nth-child(3) { left: 40%; animation-delay: 4s; font-size: 25px; }
+        .heart:nth-child(4) { left: 55%; animation-delay: 1s; }
+        .heart:nth-child(5) { left: 70%; animation-delay: 3s; font-size: 18px; }
+        .heart:nth-child(6) { left: 85%; animation-delay: 5s; }
+        .heart:nth-child(7) { left: 15%; animation-delay: 6s; font-size: 22px; }
+        .heart:nth-child(8) { left: 60%; animation-delay: 7s; font-size: 16px; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main content container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .kiss-emoji {
+            font-size: 120px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 10px 30px var(--soft-shadow));
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin: 30px 0 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            animation: fadeInDown 1s ease-out 0.3s backwards;
+        }
+
+        .hero .subtitle {
+            font-size: 28px;
+            color: var(--rose);
+            font-weight: 300;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out 0.6s backwards;
+        }
+
+        /* Message card */
+        .message-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(201, 24, 74, 0.15);
+            border: 1px solid rgba(255, 107, 157, 0.1);
+            animation: fadeInUp 1s ease-out 0.9s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .message-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--deep-rose);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .message-card p {
+            font-size: 24px;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .signature {
+            text-align: right;
+            font-size: 28px;
+            font-style: italic;
+            color: var(--rose);
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        /* Memories section */
+        .memories {
+            margin: 60px 0;
+            animation: fadeInUp 1s ease-out 1.2s backwards;
+        }
+
+        .memories h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: var(--deep-rose);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .memory-item {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 30px rgba(201, 24, 74, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 107, 157, 0.1);
+        }
+
+        .memory-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(201, 24, 74, 0.2);
+        }
+
+        .memory-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .memory-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--deep-rose);
+            margin-bottom: 15px;
+        }
+
+        .memory-item p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #5a5a5a;
+        }
+
+        /* Kiss counter */
+        .kiss-counter {
+            background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 60px rgba(201, 24, 74, 0.3);
+            animation: fadeInUp 1s ease-out 1.5s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kiss-counter::before {
+            content: '💋';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -30px;
+            right: -30px;
+            transform: rotate(-15deg);
+        }
+
+        .kiss-counter h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kiss-count {
+            font-size: 80px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin: 20px 0;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .kiss-counter p {
+            font-size: 22px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px 40px;
+            font-size: 20px;
+            color: var(--rose);
+            animation: fadeIn 1s ease-out 1.8s backwards;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-hearts {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero .subtitle {
+                font-size: 22px;
+            }
+
+            .kiss-emoji {
+                font-size: 80px;
+            }
+
+            .message-card {
+                padding: 40px 30px;
+            }
+
+            .message-card h2 {
+                font-size: 32px;
+            }
+
+            .message-card p {
+                font-size: 20px;
+            }
+
+            .kiss-count {
+                font-size: 60px;
+            }
+
+            .memory-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="hearts-container">
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="kiss-emoji">💋</div>
+            <h1>Happy Kiss Day, Vidu</h1>
+            <p class="subtitle">To the one who makes my heart skip a beat</p>
+        </section>
+
+        <!-- Main Message -->
+        <div class="message-card">
+            <h2>My Dearest Vidu, My Sweet Bebe,</h2>
+            <p>
+                Every kiss with you feels like the first time—full of magic, wonder, and pure joy. 
+                Your lips are my favorite place to be, and every moment with you, my sweet Dudu, is a treasure I cherish.
+            </p>
+            <p>
+                Vidushi, you light up my world in ways I never knew possible. Your smile, your laugh, 
+                your touch—they all remind me how lucky I am to have you in my life.
+            </p>
+            <p>
+                On this Kiss Day, I want you to know that you are my everything. 
+                Every kiss is a promise, every embrace is a celebration of our love.
+            </p>
+            <p class="signature">Forever yours,<br>Your Love 💕</p>
+        </div>
+
+        <!-- Memories Section -->
+        <section class="memories">
+            <h2>Our Special Moments</h2>
+            <div class="memory-grid">
+                <div class="memory-item">
+                    <span class="memory-icon">🌟</span>
+                    <h3>First Kiss</h3>
+                    <p>The moment that changed everything—when time stood still and the world faded away.</p>
+                </div>
+                <div class="memory-item">
+                    <span class="memory-icon">🌹</span>
+                    <h3>Every Day</h3>
+                    <p>From morning kisses to goodnight wishes, each one is more special than the last.</p>
+                </div>
+                <div class="memory-item">
+                    <span class="memory-icon">✨</span>
+                    <h3>Forever</h3>
+                    <p>Here's to a lifetime of kisses, laughter, and love that grows stronger every day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kiss Counter -->
+        <div class="kiss-counter">
+            <h3>Kisses Shared & Counting...</h3>
+            <div class="kiss-count">∞</div>
+            <p>Because with you, every moment deserves a kiss!</p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-hearts">💕 💖 💗 💝 💕</div>
+            <p>You are my today and all of my tomorrows</p>
+            <p style="font-size: 16px; margin-top: 30px; opacity: 0.7;">Made with love on Kiss Day 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactivity - clicking the kiss emoji
+        document.querySelector('.kiss-emoji').addEventListener('click', function() {
+            this.style.transform = 'scale(1.3) rotate(15deg)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+            
+            // Create a floating kiss
+            const kiss = document.createElement('div');
+            kiss.textContent = '💋';
+            kiss.style.position = 'fixed';
+            kiss.style.left = '50%';
+            kiss.style.top = '50%';
+            kiss.style.fontSize = '40px';
+            kiss.style.pointerEvents = 'none';
+            kiss.style.zIndex = '9999';
+            kiss.style.animation = 'float 3s ease-out forwards';
+            document.body.appendChild(kiss);
+            
+            setTimeout(() => {
+                kiss.remove();
+            }, 3000);
+        });
+
+        // Make memory items gently sway on hover
+        document.querySelectorAll('.memory-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotate(2deg)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
